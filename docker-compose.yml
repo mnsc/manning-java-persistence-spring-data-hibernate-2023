@@ -1,0 +1,14 @@
+---
+
+version: '3'
+services:
+  postgresql:
+    image: postgres:14@sha256:7fe0928f6de61208d6b39730456085d74578046df4c684fa198f0fb065f4381e
+    environment:
+      POSTGRES_USER: psql
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: default_db
+    volumes:
+      - ./init-postgresql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5444:5432"

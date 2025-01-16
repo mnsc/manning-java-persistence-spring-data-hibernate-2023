@@ -38,10 +38,10 @@ public class SpringDataConfiguration {
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/CH07_MAPPING_INHERITANCE?serverTimezone=UTC");
-        dataSource.setUsername("root");
-        dataSource.setPassword("");
+        dataSource.setDriverClassName("org.postgresql.Driver");
+        dataSource.setUrl("jdbc:postgresql://localhost:5444/ch07_mapping_inheritance?serverTimezone=UTC");
+        dataSource.setUsername("psql");
+        dataSource.setPassword("password");
         return dataSource;
     }
 
@@ -53,7 +53,7 @@ public class SpringDataConfiguration {
     @Bean
     public JpaVendorAdapter jpaVendorAdapter() {
         HibernateJpaVendorAdapter jpaVendorAdapter = new HibernateJpaVendorAdapter();
-        jpaVendorAdapter.setDatabase(Database.MYSQL);
+        jpaVendorAdapter.setDatabase(Database.POSTGRESQL);
         jpaVendorAdapter.setShowSql(true);
         return jpaVendorAdapter;
     }
